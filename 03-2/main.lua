@@ -16,6 +16,9 @@ function love.update()
   end
 end
 
+function love.mousepressed(x, y)
+end
+
 function love.draw()
   love.graphics.setBackgroundColor(0.8, 0.9, 1.0)
   love.graphics.draw(anjay, posX, posY)
@@ -25,16 +28,4 @@ function love.keypressed(key, scancode)
   if key == 'escape' then
     love.event.quit(0)
   end
-  
-  --[[
-  if key == 'up' then
-    posY = posY - 10
-  elseif key == 'down' then
-    posY = posY + 10
-  elseif key == 'left' then
-    posX = posX - 10
-  elseif key == 'right' then
-    posX = posX + 10
-  end
-  ]]--
 end
