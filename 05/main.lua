@@ -5,6 +5,8 @@ local ground
 local ball
 local meterRatio 
 
+local ballIm = love.graphics.newImage('am.png')
+
 function love.load()
   love.window.setMode(650, 650)
   love.graphics.setBackgroundColor(0.41,0.53,0.97)
@@ -24,7 +26,7 @@ function love.load()
   -- ball
   ball = {}
   ball.body = love.physics.newBody(world, 325, 325, 'dynamic')
-  ball.shape = love.physics.newCircleShape(25)
+  ball.shape = love.physics.newCircleShape(50)
   ball.fixture = love.physics.newFixture(ball.body, ball.shape, 1)
   ball.fixture:setRestitution(0.99)
 end
@@ -39,6 +41,7 @@ function love.draw()
   love.graphics.polygon('fill', ground.body:getWorldPoints(ground.shape:getPoints()))
   
   -- draw ball
-  love.graphics.setColor(0.76, 0.18, 0.05)
-  love.graphics.circle('fill', ball.body:getX(), ball.body:getY(), ball.shape:getRadius())
+  love.graphics.setColor(1,1,1)
+  -- love.graphics.circle('fill', ball.body:getX(), ball.body:getY(), ball.shape:getRadius())
+  love.graphics.draw(ballIm, ball.body:getX(), ball.body:getY(), ball.shape:getRadius())
 end
